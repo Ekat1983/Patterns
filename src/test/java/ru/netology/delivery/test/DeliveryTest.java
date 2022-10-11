@@ -42,7 +42,7 @@ class DeliveryTest {
         $x("//span[@class='button_text']").click();
         $x("//button[contains(@class,'button')]").click();
         $x("//input[@placeholder='Дата встречи']").setValue(secondMeetingDate);
-        $x("//span[@class='button_text']").;
+        $x("//span[@class='button_text']").click();
         $x("//*[contains(text(),'Уcпешно!')]").shouldBe(Condition.visible, Duration.ofSeconds(15));
         $("[class='notification__content']").shouldHave(Condition.exactText("Встреча успешно забронирована на" + secondMeetingDate));
 
