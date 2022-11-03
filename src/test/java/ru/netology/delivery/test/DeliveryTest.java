@@ -38,13 +38,13 @@ public class DeliveryTest {
         $("[class='notification__content']").shouldHave(Condition.exactText("Встреча успешно запланирована на " + firstMeetingDate))
                 .shouldBe(Condition.visible);
         $x("//input[@placeholder='Дата встречи']").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-        $x("//input[@placeholder='Дата встречи']").setValue(firstMeetingDate);
         $x("//span[@class='button__text']").click();
         $x("//button[contains(@class,'button')]").click();
+        $x("//input[@placeholder='Дата встречи']").setValue(secondMeetingDate);
         $x("//span[@class='button__text']").click();
         $("[data-test-id=\"replan-notification\"]").shouldHave(Condition.text("Необходимо подтверждение У вас уже запланирована встреча на другую дату. Перепланировать?"));
         $(byText("Перепланировать")).click();
-        $("[data-test-id=\"success-notification\"]").shouldHave(Condition.text("Успешно! Встреча успешно запланирована на "))
+        $("[data-test-id=\"success-notification\"]").shouldHave(Condition.text("Успешно! Встреча успешно запланирована на " + secondMeetingDate))
                .shouldBe(Condition.visible);
 
     }
